@@ -1,9 +1,10 @@
+import { defineConfig } from 'vite' // 👈 This import was missing or deleted
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // Remove the build object or comment it out to use the default 'dist'
-  // build: {
-  //   outDir: 'build', 
-  // },
+  // build: { outDir: 'build' }, // 👈 Commented out: Let Vercel use the default 'dist' folder
   server: {
     proxy: {
       '/api': {
