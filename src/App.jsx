@@ -52,8 +52,8 @@ const App = () => {
        
            
 
-         <Route path="https://lpuregbackend.onrender.com/timein" element={<TimeIn />} />
-        <Route path="https://lpuregbackend.onrender.com/timeout" element={<TimeOut />} />
+         <Route path="/timein" element={<TimeIn />} />
+        <Route path="/timeout" element={<TimeOut />} />
 
         
 
