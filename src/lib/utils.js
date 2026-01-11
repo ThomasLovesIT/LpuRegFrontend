@@ -1,5 +1,25 @@
 // src/lib/utils.js
+// frontend/utils/api.js
 
+export const apiRequest = async (url, options = {}) => {
+  try {
+    const response = await fetch(url, options);
+
+    // HERE IS THE MISSING LINK
+    if (response.status === 429) {
+      // 1. Dispatch the event your App.jsx is listening for
+      window.dispatchEvent(new Event("rate-limited"));
+      
+      // 2. Throw an error so the specific page stops processing
+      throw new Error("Rate limit exceeded");
+    }
+
+    return response;
+  } catch (error) {
+    console.error("API Request Failed:", error);
+    throw error;
+  }
+};
 // Standard date (Oct 24, 2023)
 export const formatDate = (date) => {
   if (!date) return "";

@@ -3,14 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast'; 
 
-// Components
-import HomePage from './pages/HomePage.jsx';
-import EditPage from './pages/EditPage.jsx';
-import CreatePage from './pages/CreatePage.jsx';
-import ShowDetailsPage from './pages/ShowDetailsPage.jsx';
+
+
 import RateLimitedUi from './components/RateLimitedUi.jsx';
-import Login from './pages/auth/Login.jsx';
-import Signup from './pages/auth/Signup.jsx';
+
+import TimeIn from './pages/TimeInPage.jsx';
+import TimeOut from './pages/TimeOutPage.jsx';
 
 // Navbar
 import NavBar from './components/NavBar.jsx'; 
@@ -52,34 +50,15 @@ const App = () => {
         {/* 4. YOU WERE MISSING THIS OPENING TAG 👇 */}
         <Routes>
        
-            <Route 
-      path="/" 
-      element={<HomePage />} 
-    />
+           
 
+         <Route path="https://lpuregbackend.onrender.com/timein" element={<TimeIn />} />
+        <Route path="https://lpuregbackend.onrender.com/timeout" element={<TimeOut />} />
 
-          <Route 
-            path="/login" 
-            element={!user ? <Login /> : <Navigate to="/" />} 
-          />
+        
 
-          <Route 
-            path="/register" 
-            element={!user ? <Signup /> : <Navigate to="/" />} 
-          />
-
-          <Route 
-            path="/create" 
-            element={user ? <CreatePage /> : <Navigate to="/login" />} 
-          />
-              <Route 
-        path="/notes/:id" 
-        element={user ? <ShowDetailsPage /> : <Navigate to="/login" />} 
-          />
-         <Route 
-  path="/notes/:id/edit" 
-  element={user ? <EditPage /> : <Navigate to="/login" />} 
-      />
+        
+         
           
 
         </Routes> 

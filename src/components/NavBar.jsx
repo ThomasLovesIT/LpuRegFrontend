@@ -1,19 +1,14 @@
 import { Link } from "react-router-dom";
-import { useLogout } from '../hooks/useLogout.jsx';
+
 import { useAuthContext } from '../hooks/useAuthContext.jsx';
 import { PlusIcon, ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline"; 
 
 const NavBar = () => {
   // 1. Grab the user from the Global State
   const { user, dispatch } = useAuthContext();
-  const {logout} = useLogout()
 
-  const handleLogout = () => {  
-    // Using the hooks logout function
-   logout();
-    
-  };
 
+ 
   return (
     <header className="sticky top-0 z-50 bg-base-100/80 backdrop-blur-md border-b border-primary/20">
       <div className="mx-auto max-w-6xl px-4 h-16">
@@ -21,10 +16,10 @@ const NavBar = () => {
           
           {/* LOGO */}
           <Link 
-            to="/" 
+            to="/timein" 
             className="text-2xl font-bold text-primary font-mono tracking-tight hover:text-primary-focus transition-colors"
           >
-            ThinkBoard
+        LPU REGISTRATION
           </Link>
 
           {/* RIGHT SIDE ACTIONS */}
@@ -57,18 +52,18 @@ const NavBar = () => {
               // 🔴 IF LOGGED OUT: Show Login & Register
               <>
                 <Link 
-                  to="/login" 
+                  to="/timein" 
                   className="btn btn-ghost btn-sm md:btn-md text-primary"
                 >
-                  login
+                  Time In
                 </Link>
 
                 <Link 
-                  to="/register" 
+                  to="/timeout" 
                   // Kept Register as primary to draw attention (Call to Action)
                   className="btn btn-primary btn-sm md:btn-md shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
                 >
-                  register
+                  Timeout
                 </Link>
               </>
             )}
