@@ -1,6 +1,6 @@
 // src/lib/utils.js
 // frontend/utils/api.js
-import api from './api.js';
+import api from './axios.js';
 
 export const apiRequest = async (endpoint, options = {}) => {
   try {
