@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
-import successSound from '../success.mp3'; // Example path
-import errorSound from '../error.mp3';   // Example path
+import successSound from '../../public/success.mp3'; // Example path
+import errorSound from '../../public/error.mp3';   // Example path
 
 import { useTimeout } from '../hooks/useAttendance.jsx';
 const TimeOut = () => {

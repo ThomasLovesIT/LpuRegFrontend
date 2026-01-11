@@ -3,8 +3,8 @@ import { useTimein } from '../hooks/useAttendance.jsx';
 
 // It's best practice to keep assets like audio files in your public folder.
 // This ensures they are served statically and can be accessed with a simple path.
-import successSound from '../success.mp3'; // Example path
-import errorSound from '../error.mp3';   // Example path
+import successSound from '../../public/success.mp3'; // Example path
+import errorSound from '../../public/error.mp3';   // Example path
 
 const TimeIn = () => {
   const {
