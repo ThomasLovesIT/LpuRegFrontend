@@ -1,25 +1,28 @@
 // src/lib/utils.js
 // frontend/utils/api.js
+import api from './api.js';
 
-export const apiRequest = async (url, options = {}) => {
+export const apiRequest = async (endpoint, options = {}) => {
   try {
-    const response = await fetch(url, options);
+    // Determine method and data
+    const { method = 'GET', body, headers } = options;
 
-    // HERE IS THE MISSING LINK
-    if (response.status === 429) {
-      // 1. Dispatch the event your App.jsx is listening for
-      window.dispatchEvent(new Event("rate-limited"));
-      
-      // 2. Throw an error so the specific page stops processing
-      throw new Error("Rate limit exceeded");
-    }
+    const response = await api({
+      url: endpoint,
+      method,
+      data: body ? JSON.parse(body) : undefined,
+      headers,
+    });
 
     return response;
   } catch (error) {
-    console.error("API Request Failed:", error);
+    if (error.response?.status === 429) {
+      window.dispatchEvent(new Event('rate-limited'));
+    }
     throw error;
   }
 };
+
 // Standard date (Oct 24, 2023)
 export const formatDate = (date) => {
   if (!date) return "";

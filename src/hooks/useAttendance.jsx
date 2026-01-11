@@ -19,7 +19,7 @@ export const useTimein = () => {
         setMessage({text:'', type: ''})
             setIsValid(true)
         try{
-            const response = await apiRequest('https://lpuregbackend.onrender.com/api/attendance', {
+           const response = await apiRequest('/attendance', {
                 method: 'POST',
                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({student_id: inputId, type: 'IN'})
@@ -72,7 +72,7 @@ export const useTimeout = () => {
            setIsValid(true)
 
            try{
-                const response = await apiRequest('https://lpuregbackend.onrender.com/api/attendance',{
+              const response = await apiRequest('/attendance', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({student_id: inputId, type: 'OUT'})
