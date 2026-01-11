@@ -3,8 +3,7 @@ import { useTimein } from '../hooks/useAttendance.jsx';
 
 // It's best practice to keep assets like audio files in your public folder.
 // This ensures they are served statically and can be accessed with a simple path.
-import successSound from '../../public/success.mp3'; // Example path
-import errorSound from '../../public/error.mp3';   // Example path
+
 
 const TimeIn = () => {
   const {
@@ -19,9 +18,8 @@ const TimeIn = () => {
   // --- NEW: Refs for Audio ---
   // We use useRef to hold the Audio objects. This prevents them from being
   // re-created on every render, which is much more efficient.
-  const successAudio = useRef(new Audio(successSound));
-  const errorAudio = useRef(new Audio(errorSound));
-
+  const successAudio = useRef(new Audio('/success.mp3'));
+  const errorAudio = useRef(new Audio('/error.mp3'));
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (studentId) {
