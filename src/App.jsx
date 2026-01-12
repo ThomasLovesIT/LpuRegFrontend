@@ -9,7 +9,6 @@ import RateLimitedUi from './components/RateLimitedUi.jsx';
 
 import TimeIn from './pages/TimeInPage.jsx';
 import TimeOut from './pages/TimeOutPage.jsx';
-
 // Navbar
 import NavBar from './components/NavBar.jsx'; 
 
@@ -51,10 +50,10 @@ const App = () => {
         <Routes>
        
            
-
+  <Route path="/" element={<Navigate to="/timein" replace />} />
          <Route path="/timein" element={<TimeIn />} />
         <Route path="/timeout" element={<TimeOut />} />
-
+<Route path="*" element={<div>Page Not Found</div>} />
         
 
         
